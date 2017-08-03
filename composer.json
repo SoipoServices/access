@@ -1,5 +1,5 @@
 {
-    "name": "invoiceninja/access",
+    "name": "soiposervices/invoiceninja-access",
     "description": "A module for invoice-ninja to store client access details",
     "type": "invoiceninja-module",
     "authors": [
