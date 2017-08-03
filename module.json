@@ -1,0 +1,17 @@
+{
+    "name": "Access",
+    "alias": "access",
+    "description": "A module for invoice-ninja to store client access details",
+    "keywords": ["invoiceninja-module","invoiceninja","access"],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Access\\Providers\\AccessServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ],
+    "icon": "lock",
+    "plural": "access"
+}
