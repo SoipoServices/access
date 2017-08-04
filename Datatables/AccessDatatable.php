@@ -36,7 +36,7 @@ class AccessDatatable extends EntityDatatable
                     if($model->user_id == $user->id){
                         return  Access::decrypt($model->username,$user->password);
                     }
-                    return $model->username;
+                    return "****";
                 }
             ],[
                 'password',
@@ -45,7 +45,7 @@ class AccessDatatable extends EntityDatatable
                     if($model->user_id == $user->id){
                         return  Access::decrypt($model->password,$user->password);
                     }
-                    return $model->password;
+                    return "****";
                 }
             ],[
                 'notes',

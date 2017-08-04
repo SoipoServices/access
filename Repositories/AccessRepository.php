@@ -22,7 +22,7 @@ class AccessRepository extends BaseRepository
                 ->withTrashed();
     }
 
-    public function find($filter = null, $userId = false)
+    public function find($filter = null, $userId = false, $filteredId= false)
     {
         $query = DB::table('access')
                     ->where('access.account_id', '=', \Auth::user()->account_id)
@@ -51,15 +51,14 @@ class AccessRepository extends BaseRepository
             });
         }
         $this->applyFilters($query, 'access');
+
         if ($userId) {
-            $query->where('clients.user_id', '=', $userId);
+            $query->where('access.user_id', '=', $userId);
         }
 
-        /*
-        if ($filter) {
-            $query->where();
+        if ($filteredId) {
+            $query->where('clients.user_id', '=', $filteredId);
         }
-        */
 
         return $query;
     }

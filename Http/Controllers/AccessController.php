@@ -42,10 +42,10 @@ class AccessController extends BaseController
     public function datatable(DatatableService $datatableService)
     {
         $search = request()->input('sSearch');
-        $userId = Auth::user()->filterId();
-
+        $filteredId = Auth::user()->filterId();
+        $userId = Auth::user()->id;
         $datatable = new AccessDatatable();
-        $query = $this->accessRepo->find($search, $userId);
+        $query = $this->accessRepo->find($search, $userId,$filteredId);
 
         return $datatableService->createDatatable($datatable, $query);
     }
