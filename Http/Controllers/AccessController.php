@@ -76,6 +76,10 @@ class AccessController extends BaseController
     public function store(CreateAccessRequest $request)
     {
         $data =  $request->input();
+        if(array_key_exists('username',$data)){
+            $userPassword = Auth::user()->password;
+            $data['username'] = Access::encrypt($data['username'],$userPassword);
+        }
         if(array_key_exists('password',$data)){
             $userPassword = Auth::user()->password;
             $data['password'] = Access::encrypt($data['password'],$userPassword);
@@ -108,7 +112,8 @@ class AccessController extends BaseController
         ];
 
         if($access->user->id == $user->id){
-            $data['clearPassword'] = true;
+            $data['clearData'] = true;
+            $access->username = Access::decrypt($access->username,$user->username);
             $access->password = Access::decrypt($access->password,$user->password);
             $data['access'] = $access;
         }
@@ -133,6 +138,10 @@ class AccessController extends BaseController
     public function update(UpdateAccessRequest $request)
     {
         $data =  $request->input();
+        if(array_key_exists('username',$data)){
+            $userPassword = Auth::user()->password;
+            $data['username'] = Access::encrypt($data['username'],$userPassword);
+        }
         if(array_key_exists('password',$data)){
             $userPassword = Auth::user()->password;
             $data['password'] = Access::encrypt($data['password'],$userPassword);

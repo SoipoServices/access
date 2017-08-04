@@ -29,6 +29,10 @@ class AccessDatatable extends EntityDatatable
             ],[
                 'username',
                 function ($model) {
+                    $user = Auth::user();
+                    if($model->user_id == $user->id){
+                        return  Access::decrypt($model->username,$user->password);
+                    }
                     return $model->username;
                 }
             ],[

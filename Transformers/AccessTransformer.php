@@ -28,6 +28,7 @@ class AccessTransformer extends EntityTransformer
     {
         $user = Auth::user();
         if($access->user->id == $user->id){
+            $access->username = Access::decrypt($access->username,$user->password);
             $access->password = Access::decrypt($access->password,$user->password);
         }
 

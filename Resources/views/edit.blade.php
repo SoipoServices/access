@@ -22,9 +22,9 @@
 
                 {!! Former::text('name') !!}
                 {!! Former::text('host') !!}
-                {!! Former::text('username') !!}
-                @if(isset($clearPassword) && $clearPassword != false)
-                   {!! Former::text('password')  !!}
+                @if(isset($clearData) && $clearData != false)
+                    {!! Former::text('username') !!}
+                    {!! Former::text('password')  !!}
                 @endif
 
                 {!! Former::textarea('notes') !!}
