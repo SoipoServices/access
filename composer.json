@@ -12,6 +12,8 @@
             "email": "luigi@soiposervices.com"
         }
     ],
+    "homepage": "https://soiposervices.com/",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Modules\\Access\\": ""
