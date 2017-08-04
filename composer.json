@@ -16,5 +16,10 @@
         "psr-4": {
             "Modules\\Access\\": ""
         }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     }
 }
