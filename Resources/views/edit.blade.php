@@ -22,7 +22,8 @@
 
                 {!! Former::text('name') !!}
                 {!! Former::text('host') !!}
-                @if(isset($clearData) && $clearData != false)
+
+                @if((isset($clearData) && $clearData != false) ||  !$access)
                     {!! Former::text('username') !!}
                     {!! Former::text('password')  !!}
                 @endif

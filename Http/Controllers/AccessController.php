@@ -113,8 +113,8 @@ class AccessController extends BaseController
 
         if($access->user->id == $user->id){
             $data['clearData'] = true;
-            $access->username = Access::decrypt($access->username,$user->password);
-            $access->password = Access::decrypt($access->password,$user->password);
+            $access->username = ($access->username)?Access::decrypt($access->username,$user->password):'';
+            $access->password = ($access->password)?Access::decrypt($access->password,$user->password):'';
             $data['access'] = $access;
         }
 

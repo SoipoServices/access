@@ -38,7 +38,7 @@ class AccessTransformer extends EntityTransformer
             'username' => $access->username,
             'password' => $access->password,
             'notes' => $access->notes,
-            'client_id' => $access->client_id,
+            'client_id' => $access->client,
             'id' => (int) $access->public_id,
             'updated_at' => $this->getTimestamp($access->updated_at),
             'archived_at' => $this->getTimestamp($access->deleted_at),

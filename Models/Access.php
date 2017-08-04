@@ -82,6 +82,7 @@ class Access extends EntityModel
      */
     public static function decrypt($encrypted_string, $encryption_key)
     {
+            if($encrypted_string == ""){return ;}
 
             if (strlen($encryption_key) > 32) {
                 $encryption_key = substr($encryption_key, 0, 32);

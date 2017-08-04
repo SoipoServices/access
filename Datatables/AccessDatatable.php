@@ -50,10 +50,15 @@ class AccessDatatable extends EntityDatatable
                     return $model->notes;
                 }
             ],[
-                'client_id',
+                'client',
                 function ($model) {
-                    return $model->client_id;
-                }
+                    if (! Auth::user()->can('viewByOwner', [ENTITY_CLIENT, $model->client_id])) {
+                        return Utils::getClientDisplayName($model);
+                    }
+
+                    return link_to("clients/{$model->client_public_id}", Utils::getClientDisplayName($model))->toHtml();
+                },
+                ! $this->hideClient,
             ],
             [
                 'created_at',
