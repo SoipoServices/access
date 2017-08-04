@@ -11,7 +11,10 @@ class UpdateAccessRequest extends AccessRequest
      */
     public function authorize()
     {
-        return $this->user()->can('edit', $this->entity());
+        if($this->user()->can('edit', $this->entity()) && $this->entity()->user->id == $this->user()->id){
+            return true;
+        }
+        return false;
     }
 
     /**
