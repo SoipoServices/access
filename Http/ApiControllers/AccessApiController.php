@@ -36,7 +36,7 @@ class AccessApiController extends BaseAPIController
      *     description="an ""unexpected"" error"
      *   )
      * )
-     */
+     **/
     public function index()
     {
         $data = $this->accessRepo->all();
@@ -66,7 +66,7 @@ class AccessApiController extends BaseAPIController
      *     description="an ""unexpected"" error"
      *   )
      * )
-     */
+     **/
     public function show(AccessRequest $request)
     {
         return $this->itemResponse($request->entity());
@@ -96,7 +96,7 @@ class AccessApiController extends BaseAPIController
      *     description="an ""unexpected"" error"
      *   )
      * )
-     */
+     **/
     public function store(CreateAccessRequest $request)
     {
         $access = $this->accessRepo->save($request->input());
@@ -131,7 +131,7 @@ class AccessApiController extends BaseAPIController
      *     description="an ""unexpected"" error"
      *   )
      * )
-     */
+     **/
     public function update(UpdateAccessRequest $request, $publicId)
     {
         if ($request->action) {
@@ -166,7 +166,7 @@ class AccessApiController extends BaseAPIController
      *     description="an ""unexpected"" error"
      *   )
      * )
-     */
+     **/
     public function destroy(UpdateAccessRequest $request)
     {
         $access = $request->entity();
