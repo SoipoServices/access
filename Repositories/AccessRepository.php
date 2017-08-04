@@ -46,6 +46,7 @@ class AccessRepository extends BaseRepository
             $query->where(function($query) use ($filter) {
                 $query->orWhere('access.name', 'like', '%' . $filter . '%');
                 $query->orWhere('access.host', 'like', '%' . $filter . '%');
+                $query->orWhere('clients.name', 'like', '%' . $filter . '%');
                 $query->orWhere('contacts.first_name', 'like', '%' . $filter . '%');
                 $query->orWhere('contacts.last_name', 'like', '%' . $filter . '%');
             });

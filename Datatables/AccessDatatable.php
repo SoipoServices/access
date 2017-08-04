@@ -48,11 +48,6 @@ class AccessDatatable extends EntityDatatable
                     return "****";
                 }
             ],[
-                'notes',
-                function ($model) {
-                    return $model->notes;
-                }
-            ],[
                 'client',
                 function ($model) {
                     if (! Auth::user()->can('viewByOwner', [ENTITY_CLIENT, $model->client_id])) {
